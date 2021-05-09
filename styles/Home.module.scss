@@ -1,0 +1,25 @@
+@import "./variables";
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  .image {
+    width: 400px;
+  }
+  .h1 {
+    font-size: 24px;
+    color: black;
+    font-weight: 800;
+  }
+  .h2 {
+    font-size: 18px;
+    color: $violet;
+  }
+  .btnContainer {
+    margin-top: 16px;
+  }
+}

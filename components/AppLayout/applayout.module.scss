@@ -1,0 +1,24 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-image: url(/landing.png);
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
+
+  .main {
+    background-color: $pink;
+    border-radius: 50px;
+    width: 450px;
+    height: 90vh;
+    @include respond(phone) {
+      width: 100%;
+    }
+  }
+}
