@@ -3,8 +3,27 @@ import AppLayout from "../components/AppLayout";
 import AppButton from "../components/AppButton";
 import styles from "../styles/Home.module.scss";
 import Github from "../components/Icons/Github";
+import { loginWithGithub, onAuthStateChanged } from "../firebase/client";
+import { useEffect, useState } from "react";
+import Avatar from "../components/Avatar";
 
 export default function Home() {
+  const [user, setUser] = useState(undefined);
+
+  useEffect(() => {
+    onAuthStateChanged((user) => setUser(user));
+  }, []);
+
+  const handleClick = () => {
+    loginWithGithub()
+      .then((user) => {
+        const { avatar, username, url } = user;
+        setUser(user);
+        console.log(user);
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div>
       <Head>
@@ -19,10 +38,18 @@ export default function Home() {
           <h1 className={styles.h1}>Dev's social media</h1>
           <h2 className={styles.h2}>Talk about code with developers!</h2>
           <div className={styles.btnContainer}>
-            <AppButton>
-              <Github width={24} height={24} />
-              Login with github
-            </AppButton>
+            {user === null && (
+              <AppButton onClick={handleClick}>
+                <Github width={24} height={24} />
+                Log in with Github
+              </AppButton>
+            )}
+            {user && user.avatar && (
+              <div className={styles.userContainer}>
+                <Avatar avatar={user.avatar} />
+                <strong>{user.username}</strong>
+              </div>
+            )}
           </div>
         </section>
       </AppLayout>
