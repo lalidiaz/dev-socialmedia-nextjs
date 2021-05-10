@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 import { loginWithGithub, onAuthStateChanged } from "firebase/client";
@@ -11,11 +12,16 @@ import Github from "components/Icons/Github";
 import Avatar from "components/Avatar";
 
 export default function Home() {
+  const router = useRouter();
   const [user, setUser] = useState(undefined);
 
   useEffect(() => {
     onAuthStateChanged((user) => setUser(user));
   }, []);
+
+  useEffect(() => {
+    user && router.replace("/home");
+  }, [user]);
 
   const handleClick = () => {
     loginWithGithub()
