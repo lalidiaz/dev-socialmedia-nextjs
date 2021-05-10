@@ -1,36 +1,27 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
-import { loginWithGithub, onAuthStateChanged } from "firebase/client";
+import { loginWithGithub } from "firebase/client";
+
+import useUser, { USER_STATES } from "hooks/useUser.js";
 
 import styles from "styles/style.module.scss";
 
 import AppButton from "components/AppButton";
 import AppLayout from "components/AppLayout";
 import Github from "components/Icons/Github";
-import Avatar from "components/Avatar";
 
 export default function Home() {
+  const user = useUser();
   const router = useRouter();
-  const [user, setUser] = useState(undefined);
-
-  useEffect(() => {
-    onAuthStateChanged((user) => setUser(user));
-  }, []);
 
   useEffect(() => {
     user && router.replace("/home");
   }, [user]);
 
   const handleClick = () => {
-    loginWithGithub()
-      .then((user) => {
-        const { avatar, username, url } = user;
-        setUser(user);
-        console.log(user);
-      })
-      .catch((err) => console.log(err));
+    loginWithGithub().catch((err) => console.log(err));
   };
 
   return (
@@ -47,21 +38,13 @@ export default function Home() {
           <h1 className={styles.h1}>Dev's social media</h1>
           <h2 className={styles.h2}>Talk about code with developers</h2>
           <div className={styles.btnContainer}>
-            {user === null && (
+            {user === USER_STATES.NOT_LOGGED && (
               <AppButton onClick={handleClick}>
                 <Github width={24} height={24} />
                 Log in with Github
               </AppButton>
             )}
-            {user && user.avatar && (
-              <div>
-                <Avatar
-                  avatar={user.avatar}
-                  alt={user.username}
-                  text={user.username}
-                />
-              </div>
-            )}
+            {user === USER_STATES.NOT_KNOWN && <img src={"./dog.gif"} />}
           </div>
         </section>
       </AppLayout>

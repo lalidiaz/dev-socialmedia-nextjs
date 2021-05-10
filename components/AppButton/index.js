@@ -1,8 +1,8 @@
 import styles from "./appbutton.module.scss";
 
-const AppButton = ({ children, onClick }) => {
+const AppButton = ({ children, onClick, disabled }) => {
   return (
-    <button onClick={onClick} className={styles.btn}>
+    <button onClick={onClick} className={styles.btn} disabled={disabled}>
       {children}
     </button>
   );

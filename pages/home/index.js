@@ -4,15 +4,18 @@ import styles from "./homepage.module.scss";
 import AppLayout from "components/AppLayout";
 import DevTweet from "components/DevTweet";
 import { HiSparkles } from "react-icons/hi";
+import useUser from "hooks/useUser.js";
 
 const HomePage = () => {
   const [timeline, setTimeline] = useState([]);
+  const user = useUser();
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/statuses/home_timeline").then((res) =>
-      res.json().then(setTimeline)
-    );
-  }, []);
+    user &&
+      fetch("http://localhost:3000/api/statuses/home_timeline").then((res) =>
+        res.json().then(setTimeline)
+      );
+  }, [user]);
 
   return (
     <AppLayout>
