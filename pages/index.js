@@ -1,11 +1,14 @@
 import Head from "next/head";
-import AppLayout from "../components/AppLayout";
-import AppButton from "../components/AppButton";
-import styles from "../styles/Home.module.scss";
-import Github from "../components/Icons/Github";
-import { loginWithGithub, onAuthStateChanged } from "../firebase/client";
 import { useEffect, useState } from "react";
-import Avatar from "../components/Avatar";
+
+import { loginWithGithub, onAuthStateChanged } from "firebase/client";
+
+import styles from "styles/style.module.scss";
+
+import AppButton from "components/AppButton";
+import AppLayout from "components/AppLayout";
+import Github from "components/Icons/Github";
+import Avatar from "components/Avatar";
 
 export default function Home() {
   const [user, setUser] = useState(undefined);
@@ -36,7 +39,7 @@ export default function Home() {
         <section className={styles.section}>
           <img className={styles.image} src="/logo.png" />
           <h1 className={styles.h1}>Dev's social media</h1>
-          <h2 className={styles.h2}>Talk about code with developers!</h2>
+          <h2 className={styles.h2}>Talk about code with developers</h2>
           <div className={styles.btnContainer}>
             {user === null && (
               <AppButton onClick={handleClick}>
@@ -45,9 +48,12 @@ export default function Home() {
               </AppButton>
             )}
             {user && user.avatar && (
-              <div className={styles.userContainer}>
-                <Avatar avatar={user.avatar} />
-                <strong>{user.username}</strong>
+              <div>
+                <Avatar
+                  avatar={user.avatar}
+                  alt={user.username}
+                  text={user.username}
+                />
               </div>
             )}
           </div>
