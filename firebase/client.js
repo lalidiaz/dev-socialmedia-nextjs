@@ -1,5 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/auth";
+import "firebase/firebase-firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDyXq4z8rfvyG5o057K8XE4MICQC5ck63Y",
@@ -12,13 +13,15 @@ const firebaseConfig = {
 };
 
 !firebase.apps.length && firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
 
 const mapUserFromFirebaseAuthToUser = (user) => {
-  const { displayName, email, photoURL } = user;
+  const { displayName, email, photoURL, uid } = user;
   return {
     avatar: photoURL,
     username: displayName,
     email,
+    uid,
   };
 };
 
@@ -35,4 +38,16 @@ export const loginWithGithub = () => {
     .auth()
     .signInWithPopup(githubProvider)
     .then(mapUserFromFirebaseAuthToUser);
+};
+
+export const addDevtweet = ({ avatar, content, userId, userName }) => {
+  return db.collection("devtweets").add({
+    avatar,
+    content,
+    userId,
+    userName,
+    createdAt: firebase.firestore.Timestamp.fromDate(new Date()),
+    likesCount: 0,
+    sharedCount: 0,
+  });
 };

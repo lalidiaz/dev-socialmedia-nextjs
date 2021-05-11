@@ -3,6 +3,7 @@ import AppLayout from "components/AppLayout";
 import AppButton from "components/AppButton";
 import useUser from "hooks/useUser.js";
 import { useState } from "react";
+import { addDevtweet } from "firebase/client";
 
 const DevTweet = () => {
   const user = useUser();
@@ -14,7 +15,13 @@ const DevTweet = () => {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault;
+    event.preventDefault();
+    addDevtweet({
+      avatar: user.avatar,
+      content: message,
+      userId: user.uid,
+      userName: user.username,
+    });
   };
 
   return (
