@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firebase-firestore";
+import "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDyXq4z8rfvyG5o057K8XE4MICQC5ck63Y",
@@ -70,4 +71,10 @@ export const fetchLatestDevtweets = () => {
         };
       });
     });
+};
+
+export const uploadImage = (file) => {
+  const ref = firebase.storage().ref(`images/${file.name}`);
+  const task = ref.put(file);
+  return task;
 };

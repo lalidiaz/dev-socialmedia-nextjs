@@ -4,3 +4,11 @@ export const COMPOSE_STATES = {
   SUCCESS: 2,
   ERROR: -1,
 };
+
+export const DRAG_IMAGE_STATE = {
+  ERROR: -1,
+  NONE: 0,
+  DRAG_OVER: 1,
+  UPLOADING: 2,
+  COMPLETE: 3,
+};
