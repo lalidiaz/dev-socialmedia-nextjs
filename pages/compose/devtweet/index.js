@@ -5,7 +5,7 @@ import styles from "./devtweet.module.scss";
 
 import AppLayout from "src/components/AppLayout";
 import AppButton from "src/components/AppButton";
-import useUser from "src/hooks/useUser.js/index.js";
+import useUser from "src/hooks/useUser.js";
 
 import { addDevtweet } from "src/firebase/client";
 import { COMPOSE_STATES } from "src/utils/constants";
@@ -38,7 +38,7 @@ const DevTweet = () => {
       });
   };
 
-  const isButtonDisabled = !message.length && status === COMPOSE_STATES.LOADING;
+  const isButtonDisabled = !message.length || status === COMPOSE_STATES.LOADING;
 
   return (
     <AppLayout>

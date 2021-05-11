@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 import { loginWithGithub } from "src/firebase/client";
 
-import useUser, { USER_STATES } from "src/hooks/useUser.js/index.js";
+import useUser, { USER_STATES } from "src/hooks/useUser.js";
 
 import styles from "styles/style.module.scss";
 
