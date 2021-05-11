@@ -2,15 +2,15 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-import { loginWithGithub } from "firebase/client";
+import { loginWithGithub } from "src/firebase/client";
 
-import useUser, { USER_STATES } from "hooks/useUser.js";
+import useUser, { USER_STATES } from "src/hooks/useUser.js/index.js";
 
 import styles from "styles/style.module.scss";
 
-import AppButton from "components/AppButton";
-import AppLayout from "components/AppLayout";
-import Github from "components/Icons/Github";
+import AppButton from "src/components/AppButton";
+import AppLayout from "src/components/AppLayout";
+import Github from "src/components/Icons/Github";
 
 export default function Home() {
   const user = useUser();

@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 
 import styles from "./homepage.module.scss";
-import AppLayout from "components/AppLayout";
-import DevTweet from "components/DevTweet";
+import AppLayout from "src/components/AppLayout";
+import DevTweet from "src/components/DevTweet";
 import { HiSparkles } from "react-icons/hi";
-import useUser from "hooks/useUser.js";
+import useUser from "src/hooks/useUser.js/index.js";
 
 const HomePage = () => {
   const [timeline, setTimeline] = useState([]);

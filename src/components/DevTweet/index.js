@@ -1,5 +1,5 @@
 import styles from "./devtweet.module.scss";
-import Avatar from "components/Avatar";
+import Avatar from "src/components/Avatar";
 
 const DevTweet = ({ username, id, avatar, message }) => {
   return (

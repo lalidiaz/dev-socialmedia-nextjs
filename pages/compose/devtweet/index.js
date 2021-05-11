@@ -1,9 +1,11 @@
 import styles from "./devtweet.module.scss";
-import AppLayout from "components/AppLayout";
-import AppButton from "components/AppButton";
-import useUser from "hooks/useUser.js";
+import AppLayout from "src/components/AppLayout";
+import AppButton from "src/components/AppButton";
+import useUser from "src/hooks/useUser.js/index.js";
 import { useState } from "react";
-import { addDevtweet } from "firebase/client";
+import { addDevtweet } from "src/firebase/client";
+
+
 
 const DevTweet = () => {
   const user = useUser();
