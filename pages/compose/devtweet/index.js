@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 import styles from "./devtweet.module.scss";
 
@@ -42,6 +43,9 @@ const DevTweet = () => {
 
   return (
     <AppLayout>
+      <Head>
+        <title>Write a devtweet ✏️</title>
+      </Head>
       <form onSubmit={handleSubmit}>
         <textarea
           onChange={handleChange}

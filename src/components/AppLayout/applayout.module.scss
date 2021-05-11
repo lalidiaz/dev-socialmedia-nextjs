@@ -19,6 +19,8 @@
     width: 450px;
     height: 90vh;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
 
     @include respond(phone) {
       width: 100%;

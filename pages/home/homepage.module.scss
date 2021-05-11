@@ -20,13 +20,33 @@
     color: black;
   }
 }
+.section {
+  flex: 1;
+}
+
 .nav {
-  position: sticky;
+  position: fixed;
   bottom: 0;
   height: 49px;
   border-top: 1px solid $violet;
-  width: 95%;
+  width: 100%;
   background-color: $light;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  display: flex;
+
+  .a {
+    align-items: center;
+    display: flex;
+    flex: 1 1 auto;
+    height: 100%;
+    justify-content: center;
+    color: $violet;
+    &:hover {
+      background: radial-gradient($violet 15%, transparent 16%);
+      background-size: 180px 180px;
+      background-position: center;
+      color: white;
+    }
+  }
 }
