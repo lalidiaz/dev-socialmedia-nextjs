@@ -1,14 +1,14 @@
 @import "styles/variables";
 
 .btn {
-  background-color: $violet;
+  background-color: $opaqueGreen;
   border: 0;
   border-radius: 999px;
   color: white;
   font-weight: 800;
   font-size: 16px;
   padding: 8px 24px;
-  font-family: $poppins;
+  font-family: $openSans;
   cursor: pointer;
   transition: opacity 0.3s ease;
   display: flex;

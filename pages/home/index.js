@@ -1,18 +1,10 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
-import Link from "next/link";
-
 import useUser from "src/hooks/useUser";
 import { listenLatestDevtweets } from "src/firebase/client";
-
 import styles from "./homepage.module.scss";
-
 import DevTweet from "src/components/DevTweet";
-
 import { HiSparkles } from "react-icons/hi";
-import { FaPencilAlt } from "react-icons/fa";
-import { RiHome2Fill } from "react-icons/ri";
-import { BiSearchAlt } from "react-icons/bi";
 
 const HomePage = () => {
   const [timeline, setTimeline] = useState([]);
@@ -35,7 +27,7 @@ const HomePage = () => {
       </Head>
       <header className={styles.header}>
         <h3 className={styles.h3}>Home</h3>
-        <HiSparkles />
+        <HiSparkles color="#e5e855" />
       </header>
       <section className={styles.section}>
         {timeline.map((devtweet) => {
@@ -63,23 +55,6 @@ const HomePage = () => {
           );
         })}
       </section>
-      <nav className={styles.nav}>
-        <Link href="/home">
-          <a className={styles.a}>
-            <RiHome2Fill size={20} />
-          </a>
-        </Link>
-        <Link href="/search">
-          <a className={styles.a}>
-            <BiSearchAlt size={20} />
-          </a>
-        </Link>
-        <Link href="/compose/devtweet">
-          <a className={styles.a}>
-            <FaPencilAlt size={20} />
-          </a>
-        </Link>
-      </nav>
     </>
   );
 };

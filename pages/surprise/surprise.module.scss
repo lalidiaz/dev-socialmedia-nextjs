@@ -1,0 +1,17 @@
+@import "styles/variables";
+
+.section {
+  height: 100%;
+  background-color: $opaqueGreen;
+
+  .img {
+    width: 100%;
+    height: auto;
+  }
+
+  .cat {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+  }
+}

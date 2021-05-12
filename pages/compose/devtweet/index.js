@@ -82,7 +82,7 @@ const DevTweet = () => {
   };
 
   return (
-    <>
+    <div className={styles.composeContainer}>
       <Head>
         <title>Write a devtweet ✏️</title>
       </Head>
@@ -116,7 +116,7 @@ const DevTweet = () => {
           </div>
         </form>
       </section>
-    </>
+    </div>
   );
 };
 export default DevTweet;

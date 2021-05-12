@@ -1,7 +1,12 @@
 import DevTweet from "src/components/DevTweet";
+import styles from "./id.module.scss";
 
 const DevTweetPage = (props) => {
-  return <DevTweet {...props} />;
+  return (
+    <div className={styles.devTweetContainer}>
+      <DevTweet {...props} />
+    </div>
+  );
 };
 
 export async function getServerSideProps(context) {

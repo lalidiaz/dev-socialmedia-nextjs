@@ -6,47 +6,19 @@
   align-items: center;
   height: 50px;
   top: 0;
-  border-bottom: 1px solid $violet;
+  border-bottom: 1px solid $lightGray;
   width: 100%;
   display: flex;
   justify-content: space-between;
   backdrop-filter: blur(5px);
-  background-color: $pink;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   padding: 10px;
 
   .h3 {
-    color: black;
+    color: $yellow;
   }
 }
 .section {
   flex: 1;
-}
-
-.nav {
-  border-top: 1px solid $violet;
-  background: #fff;
-  bottom: 0;
-  border-top: 1px solid #eee;
-  display: flex;
-  height: 50px;
-  position: sticky;
-  width: 100%;
-
-  .a {
-    padding: 10px 0px;
-    align-items: center;
-    display: flex;
-    flex: 1 1 auto;
-    height: 100%;
-    justify-content: center;
-    color: $violet;
-    &:hover {
-      background: radial-gradient($violet 15%, transparent 16%);
-      background-size: 180px 180px;
-      background-position: center;
-      color: white;
-    }
-  }
 }

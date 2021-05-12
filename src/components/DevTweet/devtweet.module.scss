@@ -3,10 +3,10 @@
 .article {
   padding: 10px 15px;
   display: flex;
-  border-bottom: 1px solid $light;
+  border-bottom: 1px solid $lightGray;
 
   &:hover {
-    background-color: $light;
+    background-color: $lightGray;
   }
 
   .container {

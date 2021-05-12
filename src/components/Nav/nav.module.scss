@@ -1,0 +1,29 @@
+@import "styles/variables";
+
+.nav {
+  border-top: 1px solid $lightGray;
+  background: #fff;
+  bottom: 0;
+  border-top: 1px solid #eee;
+  display: flex;
+  height: 50px;
+
+  width: 100%;
+  position: sticky;
+
+  .a {
+    padding: 10px 0px;
+    align-items: center;
+    display: flex;
+    flex: 1 1 auto;
+    height: 100%;
+    justify-content: center;
+    color: $opaqueGreen;
+    &:hover {
+      background: radial-gradient($opaqueGreen 15%, transparent 16%);
+      background-size: 180px 180px;
+      background-position: center;
+      color: white;
+    }
+  }
+}
