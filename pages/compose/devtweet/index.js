@@ -6,7 +6,10 @@ import styles from "./devtweet.module.scss";
 
 import AppLayout from "src/components/AppLayout";
 import AppButton from "src/components/AppButton";
+import Avatar from "src/components/Avatar";
+
 import useUser from "src/hooks/useUser.js";
+import { AiOutlineDelete } from "react-icons/ai";
 
 import { addDevtweet, uploadImage } from "src/firebase/client";
 import { COMPOSE_STATES, DRAG_IMAGE_STATE } from "src/utils/constants";
@@ -26,7 +29,11 @@ const DevTweet = () => {
     if (task) {
       const onProgress = () => {};
       const onError = () => {};
-      const onComplete = () => {};
+      const onComplete = () => {
+        console.log("on complete!");
+        task.snapshot.ref.getDownloadURL().then(setImgURL);
+      };
+
       task.on("state_changed", onProgress, onError, onComplete);
     }
   }, [task]);
@@ -44,6 +51,7 @@ const DevTweet = () => {
       content: message,
       userId: user.uid,
       userName: user.username,
+      img: imgURL,
     })
       .then(() => {
         router.push("/home");
@@ -79,20 +87,36 @@ const DevTweet = () => {
       <Head>
         <title>Write a devtweet ✏️</title>
       </Head>
-      <form onSubmit={handleSubmit}>
-        <textarea
-          onDragEnter={handleDragEnter}
-          onDragLeave={handleDragLeave}
-          onDrop={handleDrop}
-          onChange={handleChange}
-          className={styles.textarea}
-          placeholder="What's going on?"
-          value={message}
-        ></textarea>
-        <div className={styles.div}>
-          <AppButton disabled={isButtonDisabled}>DevTweet</AppButton>
-        </div>
-      </form>
+      <section className={styles.formContainer}>
+        {user && (
+          <section className={user.avatarContainer}>
+            <Avatar avatar={user.avatar} />
+          </section>
+        )}
+
+        <form onSubmit={handleSubmit}>
+          <textarea
+            onDragEnter={handleDragEnter}
+            onDragLeave={handleDragLeave}
+            onDrop={handleDrop}
+            onChange={handleChange}
+            className={styles.textarea}
+            placeholder="What's going on?"
+            value={message}
+          ></textarea>
+          {imgURL && (
+            <section className={styles.section}>
+              <button className={styles.btn} onClick={() => setImgURL(null)}>
+                <AiOutlineDelete color="white" size={18} />
+              </button>
+              <img src={imgURL} className={styles.img} />
+            </section>
+          )}
+          <div className={styles.div}>
+            <AppButton disabled={isButtonDisabled}>DevTweet</AppButton>
+          </div>
+        </form>
+      </section>
     </AppLayout>
   );
 };

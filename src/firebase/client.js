@@ -41,7 +41,7 @@ export const loginWithGithub = () => {
     .then(mapUserFromFirebaseAuthToUser);
 };
 
-export const addDevtweet = ({ avatar, content, userId, userName }) => {
+export const addDevtweet = ({ avatar, content, userId, userName, img }) => {
   return db.collection("devtweets").add({
     avatar,
     content,
@@ -50,6 +50,7 @@ export const addDevtweet = ({ avatar, content, userId, userName }) => {
     createdAt: firebase.firestore.Timestamp.fromDate(new Date()),
     likesCount: 0,
     sharedCount: 0,
+    img,
   });
 };
 

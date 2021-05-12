@@ -2,7 +2,7 @@ import styles from "./devtweet.module.scss";
 import Avatar from "src/components/Avatar";
 import useTimeAgo from "src/hooks/useTimeAgo";
 
-const DevTweet = ({ userName, id, avatar, content, createdAt }) => {
+const DevTweet = ({ userName, id, avatar, content, createdAt, img }) => {
   const timeago = useTimeAgo(createdAt);
 
   return (
@@ -18,6 +18,7 @@ const DevTweet = ({ userName, id, avatar, content, createdAt }) => {
         </header>
 
         <p className={styles.message}>{content}</p>
+        {img && <img src={img} className={styles.img} />}
       </section>
     </article>
   );
