@@ -3,7 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 
 import useUser from "src/hooks/useUser";
-import { fetchLatestDevtweets } from "src/firebase/client";
+import { listenLatestDevtweets } from "src/firebase/client";
 
 import styles from "./homepage.module.scss";
 
@@ -19,7 +19,11 @@ const HomePage = () => {
   const user = useUser();
 
   useEffect(() => {
-    user && fetchLatestDevtweets().then(setTimeline);
+    if (user) {
+      listenLatestDevtweets((newDevtweet) => {
+        setTimeline(newDevtweet);
+      });
+    }
   }, [user]);
 
   return (

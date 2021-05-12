@@ -54,23 +54,27 @@ export const addDevtweet = ({ avatar, content, userId, userName, img }) => {
   });
 };
 
-export const fetchLatestDevtweets = () => {
+export const mapDevtweetFromFirebaseToDevtweetObj = (doc) => {
+  const data = doc.data();
+  const id = doc.id;
+  const { createdAt } = data;
+
+  return {
+    ...data,
+    id,
+    createdAt: +createdAt.toDate(),
+  };
+};
+
+export const listenLatestDevtweets = (callback) => {
   return db
     .collection("devtweets")
     .orderBy("createdAt", "desc")
-    .get()
-    .then(({ docs }) => {
-      return docs.map((doc) => {
-        const data = doc.data();
-        const id = doc.id;
-        const { createdAt } = data;
-
-        return {
-          ...data,
-          id,
-          createdAt: +createdAt.toDate(),
-        };
-      });
+    .onSnapshot(({ docs }) => {
+      const newDevtweets = docs.map((doc) =>
+        mapDevtweetFromFirebaseToDevtweetObj(doc)
+      );
+      callback(newDevtweets);
     });
 };
 
