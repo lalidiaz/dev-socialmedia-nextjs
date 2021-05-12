@@ -1,12 +1,15 @@
 import styles from "./devtweet.module.scss";
 import Avatar from "src/components/Avatar";
 import useTimeAgo from "src/hooks/useTimeAgo";
+import useDateTimeFormat from "src/hooks/useDateTimeFormat";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
 const DevTweet = ({ userName, id, avatar, content, createdAt, img }) => {
   const timeago = useTimeAgo(createdAt);
+  const createdAtFormated = useDateTimeFormat(createdAt);
   const router = useRouter();
+  console.log({ router });
 
   const handleArticleClick = (e) => {
     e.preventDefault();
@@ -22,11 +25,9 @@ const DevTweet = ({ userName, id, avatar, content, createdAt, img }) => {
         <header className={styles.header}>
           <span className={styles.username}>{userName}</span>
           <span> • </span>
-          <Link href={`/status/${id}`}>
-            <a className={styles.a}>
-              <date>{timeago}</date>
-            </a>
-          </Link>
+          <a className={styles.a}>
+            <time title={createdAtFormated}>{timeago}</time>
+          </a>
         </header>
 
         <p className={styles.message}>{content}</p>

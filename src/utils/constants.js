@@ -12,3 +12,5 @@ export const DRAG_IMAGE_STATE = {
   UPLOADING: 2,
   COMPLETE: 3,
 };
+
+export const DEFAULT_LANGUAGE = "en-US";
