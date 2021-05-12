@@ -5,7 +5,6 @@
 /.pnp
 .pnp.js
 
-
 # testing
 /coverage
 
@@ -36,3 +35,4 @@ yarn-error.log*
 
 # firebase keys
 /src/firebase/firebase-keys.json
+

@@ -19,11 +19,13 @@ const HomePage = () => {
   const user = useUser();
 
   useEffect(() => {
+    let unsuscribe;
     if (user) {
-      listenLatestDevtweets((newDevtweet) => {
+      unsuscribe = listenLatestDevtweets((newDevtweet) => {
         setTimeline(newDevtweet);
       });
     }
+    return () => unsuscribe && unsuscribe();
   }, [user]);
 
   return (
