@@ -89,12 +89,12 @@ const DevTweet = () => {
       </Head>
       <section className={styles.formContainer}>
         {user && (
-          <section className={user.avatarContainer}>
+          <section className={styles.avatarContainer}>
             <Avatar avatar={user.avatar} />
           </section>
         )}
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={styles.form}>
           <textarea
             onDragEnter={handleDragEnter}
             onDragLeave={handleDragLeave}

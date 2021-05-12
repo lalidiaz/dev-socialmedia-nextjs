@@ -5,39 +5,42 @@
   display: flex;
 
   .avatarContainer {
-    padding-top: 20px;
+    padding-top: 10px;
     padding-left: 10px;
   }
-  .textarea {
+  .form {
     width: 100%;
-    border: 0;
-    padding: 15px;
-    outline: 0;
-    resize: none;
-    font-size: 18px;
-    min-height: 200px;
-  }
-
-  .section {
-    position: relative;
-    .btn {
-      position: absolute;
-      border: 0;
-      background-color: rgba(0, 0, 0, 0.3);
-      border-radius: 9999px;
-      margin: 10px;
-      right: 10px;
-      width: 33px;
-      height: 33px;
-      cursor: pointer;
-    }
-    .img {
-      height: auto;
+    .textarea {
       width: 100%;
-      border-radius: 10px;
+      border: 0;
+      padding: 15px;
+      outline: 0;
+      resize: none;
+      font-size: 18px;
+      min-height: 200px;
     }
-  }
-  .div {
-    padding: 15px;
+
+    .section {
+      position: relative;
+      .btn {
+        position: absolute;
+        border: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 9999px;
+        margin: 10px;
+        right: 10px;
+        width: 33px;
+        height: 33px;
+        cursor: pointer;
+      }
+      .img {
+        height: auto;
+        width: 100%;
+        border-radius: 10px;
+      }
+    }
+    .div {
+      padding: 15px;
+    }
   }
 }
