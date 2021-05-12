@@ -7,7 +7,6 @@ import { fetchLatestDevtweets } from "src/firebase/client";
 
 import styles from "./homepage.module.scss";
 
-import AppLayout from "src/components/AppLayout";
 import DevTweet from "src/components/DevTweet";
 
 import { HiSparkles } from "react-icons/hi";
@@ -24,7 +23,7 @@ const HomePage = () => {
   }, [user]);
 
   return (
-    <AppLayout>
+    <>
       <Head>
         <title>Home</title>
       </Head>
@@ -75,7 +74,7 @@ const HomePage = () => {
           </a>
         </Link>
       </nav>
-    </AppLayout>
+    </>
   );
 };
 export default HomePage;

@@ -4,7 +4,6 @@ import Head from "next/head";
 
 import styles from "./devtweet.module.scss";
 
-import AppLayout from "src/components/AppLayout";
 import AppButton from "src/components/AppButton";
 import Avatar from "src/components/Avatar";
 
@@ -83,7 +82,7 @@ const DevTweet = () => {
   };
 
   return (
-    <AppLayout>
+    <>
       <Head>
         <title>Write a devtweet ✏️</title>
       </Head>
@@ -117,7 +116,7 @@ const DevTweet = () => {
           </div>
         </form>
       </section>
-    </AppLayout>
+    </>
   );
 };
 export default DevTweet;

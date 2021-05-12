@@ -9,7 +9,6 @@ import useUser, { USER_STATES } from "src/hooks/useUser.js";
 import styles from "styles/style.module.scss";
 
 import AppButton from "src/components/AppButton";
-import AppLayout from "src/components/AppLayout";
 import Github from "src/components/Icons/Github";
 
 export default function Home() {
@@ -32,7 +31,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <AppLayout>
+      <>
         <section className={styles.section}>
           <img className={styles.image} src="/logo.png" />
           <h1 className={styles.h1}>Dev's social media</h1>
@@ -47,7 +46,7 @@ export default function Home() {
             {user === USER_STATES.NOT_KNOWN && <img src={"./dog.gif"} />}
           </div>
         </section>
-      </AppLayout>
+      </>
     </div>
   );
 }
