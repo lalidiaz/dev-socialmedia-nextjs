@@ -13,7 +13,7 @@ const DevTweet = ({ userName, id, avatar, content, createdAt, img }) => {
 
   const handleArticleClick = (e) => {
     e.preventDefault();
-    router.push(`https://devtweeter.vercel.app/status/${id}`);
+    router.push(`/status/${id}`);
   };
 
   return (
