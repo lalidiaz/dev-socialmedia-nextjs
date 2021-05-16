@@ -14,10 +14,12 @@ export async function getServerSideProps(context) {
   const { id } = params;
 
   const apiResponse = await fetch(
-    `https://devtweeter.vercel.app/status//${id}`
+    `http://devtweeter.vercel.app/api/devtweets/${id}`
   );
+  console.log({ apiResponse });
   if (apiResponse.ok) {
     const props = await apiResponse.json();
+    console.log({ props });
     return { props };
   }
 }
