@@ -13,9 +13,7 @@ export async function getServerSideProps(context) {
   const { params, res } = context;
   const { id } = params;
 
-  const apiResponse = await fetch(
-    `http://devtweeter.vercel.app/api/devtweets/${id}`
-  );
+  const apiResponse = await fetch(`http://localhost:3000/api/devtweets/${id}`);
   console.log({ apiResponse });
   if (apiResponse.ok) {
     const props = await apiResponse.json();

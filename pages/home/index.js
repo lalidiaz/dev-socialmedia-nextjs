@@ -31,16 +31,9 @@ const HomePage = () => {
       </header>
       <section className={styles.section}>
         {timeline.map((devtweet) => {
-          const {
-            userName,
-            id,
-            avatar,
-            content,
-            userId,
-            createdAt,
-            img,
-          } = devtweet;
-          console.log({ devtweet });
+          const { userName, id, avatar, content, userId, createdAt, img } =
+            devtweet;
+
           return (
             <DevTweet
               key={id}
