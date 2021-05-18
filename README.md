@@ -2,8 +2,7 @@ Dev's social media app with Nextjs 🌹
 
 DevTweet social media app (Twitter Clon) with Github authentication (Firebase). You can write DevTweets and upload them in real time. You can upload images (drag and drop) and those images will be saved in firebase storage.
 
-See the demo here!
-https://user-images.githubusercontent.com/60779542/118629320-8829de00-b7de-11eb-991d-98f8e9f2f05b.mov
+
 
 
 ![Screen Shot 2021-05-16 at 10 15 48 PM](https://user-images.githubusercontent.com/60779542/118407969-5d337300-b694-11eb-86cd-639ddc0207d3.png)
