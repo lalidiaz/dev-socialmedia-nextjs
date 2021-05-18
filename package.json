@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "npm run build && npm run export",
-    "start": "next start -H 0.0.0.0 -p ${PORT:-8080}"
+    "start": "next start"
   },
   "dependencies": {
     "firebase": "^8.5.0",
