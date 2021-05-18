@@ -36,7 +36,7 @@ export default function Home() {
           {user === USER_STATES.NOT_LOGGED && (
             <AppButton onClick={handleClick}>
               <Github width={24} height={24} />
-              Log in with Github
+              Github Log in
             </AppButton>
           )}
           {user === USER_STATES.NOT_KNOWN && <img src={"./dog.gif"} />}
