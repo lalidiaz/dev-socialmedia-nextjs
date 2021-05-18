@@ -6,7 +6,6 @@ import useUser, { USER_STATES } from "src/hooks/useUser.js";
 import styles from "styles/style.module.scss";
 import AppButton from "src/components/AppButton";
 import Github from "src/components/Icons/Github";
-import Nav from "src/components/Nav";
 
 export default function Home() {
   const user = useUser();
