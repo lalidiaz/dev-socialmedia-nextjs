@@ -1,15 +1,11 @@
 {
-  "cacheDirectories": [
-    ".next/cache"
-  ],
   "name": "plantter-nextjs",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "heroku-postbuild": "npm run build",
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p $PORT"
+    "start": "next start"
   },
   "dependencies": {
     "firebase": "^8.5.0",
